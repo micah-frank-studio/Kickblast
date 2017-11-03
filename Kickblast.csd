@@ -28,6 +28,7 @@ gi10 ftgen     0, 0, 2^10, 10, 1, 0, -1/9, 0, 1/25, 0, -1/49, 0, 1/81
 schedule 1, 0, 10000 ;prime globals
 
 instr globals, 1
+gicounter init 0
 reset:
 
 ;; QUICK PARAMETERS
@@ -45,23 +46,31 @@ giatklvl random 0.1, 0.5 ;attack portion level - default 0.2, 0.5
 
 giFilterInit random 1000, 16000
 
-gSatrb strcpy "kick-" ;file naming attribute (e.g. "long-", "kick-Nov12-" etc..)
+gSatrb strcpy "kick-" ;file naming prefix (e.g. "long-", "kick-Nov12-" etc..)
 
-giGenerations = 20 ;how many kicks to generate?
+giGenerations = 20 ;define how many kicks to generate
 
 ;prints "reset. new kick generating...\n"
 ;prints "kick length is %f seconds\n", gikicksustain
 
 ;all instruments must be initialized so that an even can be placed therein.
 
-schedule 98, 0, gikicksustain ;prime sequencer
-schedule 100, 0, gikicksustain ; prime recorder
+
 
 ktime init 0
 ktime timeinsts 
-if ktime > gikicksustain then ;reset when elapsed time is greater than steps
-	reinit reset
+
+if gicounter < giGenerations then
+		if ktime > gikicksustain then ;reset when elapsed time is greater than steps
+		schedule 98, 0, gikicksustain ;prime sequencer
+		schedule 100, 0, gikicksustain ; prime recorder
+		gicounter += 1
+		reinit reset
+		endif
+	else 
+		event "e", 0, 0
 endif
+
 
 endin
 
@@ -142,7 +151,7 @@ endin
 
 </CsInstruments>
 <CsScore> 
-
+e 2
 </CsScore>
 </CsoundSynthesizer>
 <bsbPanel>
