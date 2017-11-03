@@ -33,7 +33,7 @@ reset:
 ;; Quick Parameters
 
 ;kick sustain values
-gikicksustain random 1, 1 ;default 1,1 generates 1 sec long kick
+gikicksustain random 0.25, 2 ;default 1,1 generates 1 sec long kick
 gikickfreq random 50, 500 ;kick freq
 gikickres random 0, 0.5 ;kick resonance
 ginitpitch random 2, 9 ;pitch env begin
