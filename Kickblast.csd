@@ -34,19 +34,19 @@ reset:
 ;; QUICK PARAMETERS
 
 ;kick sustain values
-gikicksustain random 0.25, 2 ;default 1,1 generates 1 sec long kick
+gikicksustain random 0.5, 1 ;default 0.5,1 - generates kick btwn 0.5 & 1 sec long
 gikickfreq random 50, 500 ;kick freq
 gikickres random 0, 0.5 ;kick resonance
-ginitpitch random 2, 9 ;pitch env begin
+ginitpitch random 0.001, 8 ;pitch env init point (factor of gikickfreq 0.0 - 1.0)
+giPDecayFactor random 0.1, 1 ;pitch decay (factor of gikicksustain 0.0 - 1.0)
 
 ;kick attack values
 giatkdur random 0.015, 0.005 ; kick attack duration - default 0.015, 0.005
 giatkfreq random 50, 400 ;kick attack freq - default 50, 400
 giatklvl random 0.1, 0.5 ;attack portion level - default 0.2, 0.5
-
 giFilterInit random 1000, 16000
 
-gSatrb strcpy "kick-" ;file naming prefix (e.g. "long-", "kick-Nov12-" etc..)
+gSatrb strcpy "kick-" ;file descriptor prefix (e.g. "long-", "kick-Nov12-" etc..)
 
 giGenerations = 20 ;define how many kicks to generate
 
@@ -88,7 +88,7 @@ iKickAtkSelection1 = ikickAtkArray[round(ikickAtkSelect1)]
 
 ;;kick sustain
 isuswave  =  iKickSelection1 ;choose waveform
-kpenv expseg ginitpitch, giatkdur, 1, gikicksustain-giatkdur, 0.01  ;modulate pitch for duration
+kpenv expseg ginitpitch, giatkdur, 1, (gikicksustain-giatkdur)*giPDecayFactor, 0.01  ;modulate pitch.
 
 kamp expseg 0.9, gikicksustain, 0.001
 
@@ -144,7 +144,7 @@ aout1 monitor
 ;;file writing
 Sfilename strcat gSatrb, Stitle 
 Sfilename strcat Sfilename, ".aif"
-fout Sfilename, 24, aout1
+;fout Sfilename, 24, aout1
 
 endin
 
