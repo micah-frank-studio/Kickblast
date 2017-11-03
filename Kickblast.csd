@@ -130,9 +130,9 @@ endif
 aout1 monitor
 
 ;;file writing
-Sfilename strcat "kik-long",Stitle 
+Sfilename strcat "kik-",Stitle 
 Sfilename strcat Sfilename, ".aif"
-;fout Sfilename, 24, aout1
+fout Sfilename, 24, aout1
 
 endin
 
