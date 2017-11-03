@@ -34,7 +34,7 @@ reset:
 ;; QUICK PARAMETERS
 
 ;kick sustain values
-gikicksustain random 0.5, 1 ;default 0.5,1 - generates kick btwn 0.5 & 1 sec long
+gikicksustain random 2, 2 ;default 0.5,1 - generates kick btwn 0.5 & 1 sec long
 gikickfreq random 50, 500 ;kick freq
 gikickres random 0, 0.5 ;kick resonance
 ginitpitch random 0.001, 8 ;pitch env init point (factor of gikickfreq 0.0 - 1.0)
@@ -46,7 +46,7 @@ giatkfreq random 50, 400 ;kick attack freq - default 50, 400
 giatklvl random 0.1, 0.5 ;attack portion level - default 0.2, 0.5
 giFilterInit random 1000, 16000
 
-gSatrb strcpy "kick-" ;file descriptor prefix (e.g. "long-", "kick-Nov12-" etc..)
+gSatrb strcpy "kick-long-" ;file descriptor prefix (e.g. "long-", "kick-Nov12-" etc..)
 
 giGenerations = 20 ;define how many kicks to generate
 
@@ -144,7 +144,7 @@ aout1 monitor
 ;;file writing
 Sfilename strcat gSatrb, Stitle 
 Sfilename strcat Sfilename, ".aif"
-;fout Sfilename, 24, aout1
+fout Sfilename, 24, aout1
 
 endin
 
