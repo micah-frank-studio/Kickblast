@@ -30,7 +30,7 @@ schedule 1, 0, 10000 ;prime globals
 instr globals, 1
 reset:
 
-;; Quick Parameters
+;; QUICK PARAMETERS
 
 ;kick sustain values
 gikicksustain random 0.25, 2 ;default 1,1 generates 1 sec long kick
@@ -45,9 +45,12 @@ giatklvl random 0.1, 0.5 ;attack portion level - default 0.2, 0.5
 
 giFilterInit random 1000, 16000
 
-prints "reset. new kick generating...\n"
-prints "kick length is %f seconds\n", gikicksustain
+gSatrb strcpy "kick-" ;file naming attribute (e.g. "long-", "kick-Nov12-" etc..)
 
+giGenerations = 20 ;how many kicks to generate?
+
+;prints "reset. new kick generating...\n"
+;prints "kick length is %f seconds\n", gikicksustain
 
 ;all instruments must be initialized so that an even can be placed therein.
 
@@ -130,7 +133,7 @@ endif
 aout1 monitor
 
 ;;file writing
-Sfilename strcat "kik-",Stitle 
+Sfilename strcat gSatrb, Stitle 
 Sfilename strcat Sfilename, ".aif"
 fout Sfilename, 24, aout1
 
