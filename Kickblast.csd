@@ -33,11 +33,11 @@ reset:
 ;; QUICK PARAMETERS
 
 ;kick sustain values
-gikicksustain random 0.5, 1 ;default 0.5,1 - generates kick btwn 0.5 & 2 sec long
+gikicksustain random 0.5, 1.5 ;default 0.5,1.5 - generates kick btwn 0.5 & 2 sec long
 gikickfreq random 50, 300 ;kick freq
 gikickres random 0, 0.5 ;kick resonance
 ginitpitch random 0.001, 5 ;pitch env init point (factor of gikickfreq 0.0 - 1.0)
-giPDecayFactor random 0.7, 0.9 ;pitch decay (factor of gikicksustain 0.0 - 1.0)
+giPDecayFactor random 0.1, 0.9 ;pitch decay (factor of gikicksustain 0.0 - 1.0)
 
 ;kick attack values
 giatkdur random 0.005, 0.05 ; kick attack duration - default 0.015, 0.005
@@ -97,7 +97,7 @@ aatk oscili katkenv, giatkfreq, iatkwave
 
 kfiltenv expseg giFilterInit, gikicksustain, 20
 
-afilteredsig moogvcf2 asus, kfiltenv, gikickres
+afilteredsig moogvcf2 asus+aatk, kfiltenv, gikickres
 
 a1 limit afilteredsig, -0.9, 0.9 ;limiter
 
