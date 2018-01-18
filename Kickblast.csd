@@ -1,5 +1,5 @@
-; 	Chronopolis 5k Kickblast
-; 	by Micah Frank 2017
+; Chronopolis 5k Kickblast
+; by Micah Frank 2018
 ;	https://github.com/chronopolis5k
 ;	micah@puremagnetik.com		
 
@@ -9,10 +9,11 @@
 <CsInstruments>
 
 sr = 48000
-ksmps = 10
+ksmps = 128
 nchnls = 1
 0dbfs = 1.0
 
+giGenerations = 50 ;define how many kicks to generate
 
 seed 0 
 ;;function tables
@@ -45,9 +46,7 @@ giatkfreq random 50, 400 ;kick attack freq - default 50, 400
 giatklvl random 0.1, 0.5 ;attack portion level - default 0.2, 0.5
 giFilterInit random 1000, 16000
 
-gSatrb strcpy "kick-" ;file descriptor prefix (e.g. "long-", "kick-Nov12-" etc..)
-
-giGenerations = 20 ;define how many kicks to generate
+gSatrb strcpy "kick-" ;file descriptor prefix (e.g. "long-", "kick-Jan12-" etc..)
 
 prints "reset. new kick generating...\n"
 ;prints "kick length is %f seconds\n", gikicksustain
