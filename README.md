@@ -1,8 +1,10 @@
-# Chronopolis 5k Kickblast - Kick Drum Generation Device
+# Kickblast - Kick Drum Generation Device
 
 ![Alt text](https://github.com/chronopolis5k/Kickblast/blob/master/Media/kickblast.jpg?raw=true "Building Kickblast this morning")
 
 Kickblast is a Csound program that populates a folder full of computer (Csound) generated bass drums.
+
+Audio Sample: https://soundcloud.com/micahfrank/kickblast
 
 1) All you need is Csound: http://csound.com/download.html CsoundQT comes with Csound and will enable you to run Kickblast.
 
