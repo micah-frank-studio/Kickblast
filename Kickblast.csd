@@ -34,7 +34,7 @@ reset:
 ;; QUICK PARAMETERS
 
 ;kick sustain values
-gikicksustain random 0.5, 1.5 ;default 0.5,1.5 - generates kick btwn 0.5 & 2 sec long
+gikicksustain random 0.5, 2 ;generates kick btwn 0.5 & 2 sec long. Try long values (~4 sec) for some interesting results
 gikickfreq random 50, 300 ;kick freq
 gikickres random 0, 0.5 ;kick resonance
 ginitpitch random 0.001, 5 ;pitch env init point (factor of gikickfreq 0.0 - 1.0)
