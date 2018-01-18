@@ -1,14 +1,16 @@
 # Chronopolis 5k Kickblast - Kick Drum Generation Device
 
-Kickblast is a variation off of Beatfox, focusing only on the kick drum synthesizer.
+![Alt text](https://github.com/chronopolis5k/Beatfox/blob/master/Media/kickblast.jpg?raw=true "Building Kickblast at my local cafe")
 
-It uses a specialized set of user definable controls to populate a folder full of computer (Csound) generated bass drums.
+Kickblast is a Csound program that populates a folder full of computer (Csound) generated bass drums.
 
-All you need is a Csound compiler like CsoundQT: https://csoundqt.github.io/
+1) All you need is Csound: http://csound.com/download.html CsoundQT comes with Csound and will enable you to run Kickblast.
 
-Open the Kickblast.csd file and hit "Run" or "command + R"
+2) Once installed, open the Kickblast.csd file and hit "Render" for offline file generation or "Run" for real-time.
 
-You can define a number of parameters up in the top section, including how many kick drums you want to generate.
+3) You can define a number of parameters up in the top section, including how many kick drums you wish to generate.
+
+4) The folder which contains the Kickblast.csd will become populated with your kick drums.
 
 Enjoy!
 
