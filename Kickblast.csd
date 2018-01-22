@@ -1,10 +1,15 @@
-; Chronopolis 5k Kickblast
-; by Micah Frank 2018
-;	https://github.com/chronopolis5k
-;	micah@puremagnetik.com		
+/*
 
+KICKBLAST
+by Micah Frank 2018
+https://github.com/chronopolis5k
+micah@puremagnetik.com		
+
+*/
+ 
 <CsoundSynthesizer>
 <CsOptions>
+-odac
 </CsOptions>
 <CsInstruments>
 
@@ -27,7 +32,7 @@ gi10 ftgen     0, 0, 2^10, 10, 1, 0, -1/9, 0, 1/25, 0, -1/49, 0, 1/81
 
 schedule 1, 0, 10000 ;prime globals
 
-instr globals, 1
+instr settings, 1
 gicounter init 0
 reset:
 
@@ -36,14 +41,14 @@ reset:
 ;kick sustain values
 gikicksustain random 0.5, 2 ;generates kick btwn 0.5 & 2 sec long. Try long values (~4 sec) for some interesting results
 gikickfreq random 50, 300 ;kick freq
-gikickres random 0, 0.5 ;kick resonance
+gikickres random 0, 0.5 ;kick resonance. Careful!
 ginitpitch random 0.001, 5 ;pitch env init point (factor of gikickfreq 0.0 - 1.0)
 giPDecayFactor random 0.1, 0.9 ;pitch decay (factor of gikicksustain 0.0 - 1.0)
 
 ;kick attack values
 giatkdur random 0.005, 0.05 ; kick attack duration - default 0.015, 0.005
 giatkfreq random 50, 400 ;kick attack freq - default 50, 400
-giatklvl random 0.1, 0.5 ;attack portion level - default 0.2, 0.5
+giatklvl random 0.1, 0.5 ;attack portion level - default 0.1, 0.5
 giFilterInit random 1000, 16000
 
 gSatrb strcpy "kick-" ;file descriptor prefix (e.g. "long-", "kick-Jan12-" etc..)
