@@ -39,7 +39,7 @@ reset:
 ;; QUICK PARAMETERS
 
 ;kick sustain values
-gikicksustain random 0.5, 2 ;generates kick btwn 0.5 & 2 sec long. Try long values (~4 sec) for some interesting results
+gikicksustain random 0.5, 4 ;generates kick btwn 0.5 & 2 sec long. Try long values (~4 sec) for some interesting results
 gikickfreq random 50, 300 ;kick freq
 gikickres random 0, 0.5 ;kick resonance. Careful!
 ginitpitch random 0.001, 5 ;pitch env init point (factor of gikickfreq 0.0 - 1.0)
@@ -99,7 +99,7 @@ katkenv expseg giatklvl, giatkdur, 0.01 ;attack envelope
 asus oscili kamp, gikickfreq*kpenv, isuswave
 aatk oscili katkenv, giatkfreq, iatkwave
 
-kfiltenv expseg giFilterInit, gikicksustain, 20
+kfiltenv expseg giFilterInit, gikicksustain*0.25, 20
 
 afilteredsig moogvcf2 asus+aatk, kfiltenv, gikickres
 
