@@ -114,7 +114,7 @@ instr drumsSeq, 98
 ktrig metro 1/gikicksustain
 
 if ktrig = 1 then
-		event "i", "kick", 0, gikicksustain	
+		event "i", 2, 0, gikicksustain	
 endif	
 
 endin
